@@ -1,0 +1,762 @@
+
+/* PORTAL DE ESTUDOS — PROFESSOR LUCAS SOUZA */
+/* Identidade visual: azul tecnológico */
+
+:root {
+  --azul-escuro: #0a2342;
+  --azul-medio: #124c91;
+  --azul: #1877f2;
+  --azul-claro: #53b5ff;
+  --fundo: #f3f7fc;
+  --branco: #ffffff;
+  --texto: #153454;
+  --cinza: #63768c;
+  --borda: #dce7f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Segoe UI", sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  font-size: 16px;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--azul-claro);
+  outline-offset: 4px;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CABEÇALHO */
+
+.topbar {
+  max-width: 1180px;
+  width: calc(100% - 40px);
+  margin: auto;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+}
+
+
+.brand-logo {
+  width: 260px;
+  height: auto;
+  max-height: 125px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-copy span {
+  color: var(--azul);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.brand-copy strong {
+  font-size: 17px;
+}
+
+.topbar-tag {
+  color: var(--cinza);
+  font-size: 13px;
+}
+
+/* ÁREA PRINCIPAL */
+
+main {
+  flex: 1;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background:
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(83, 181, 255, .25),
+      transparent 35%
+    ),
+    linear-gradient(
+      120deg,
+      #091f3b,
+      #103c71 65%,
+      #1761bd
+    );
+}
+
+.hero-content {
+  width: calc(100% - 40px);
+  max-width: 1180px;
+  min-height: 340px;
+  margin: auto;
+  padding: 55px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.hero-left {
+  max-width: 730px;
+}
+
+.hero-flag {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #abd8ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-flag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #69c7ff;
+}
+
+.hero-title {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin: 22px 0;
+}
+
+.hero-lead {
+  color: #d5e8fa;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.hero-chips {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 9px 13px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #21568d;
+  background: #e7f3ff;
+}
+
+.hero-chips .chip {
+  color: #e1f2ff;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .2);
+}
+
+/* ILUSTRAÇÃO DO CABEÇALHO */
+
+.hero-art {
+  width: 230px;
+  height: 230px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-circle {
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(180, 223, 255, .5);
+  border-radius: 50%;
+  padding: 23px;
+  box-shadow:
+    0 0 0 20px rgba(180, 223, 255, .06),
+    0 0 0 42px rgba(180, 223, 255, .04);
+}
+
+.hero-circle-inner {
+  height: 100%;
+  border: 1px dashed rgba(180, 223, 255, .5);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-book svg {
+  width: 78px;
+  height: 78px;
+  color: #b7e3ff;
+}
+
+.hero-art-caption {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #daedff;
+  text-align: center;
+}
+
+/* CONTEÚDO */
+
+.content-region {
+  width: calc(100% - 40px);
+  max-width: 1180px;
+  margin: auto;
+  padding: 45px 0 75px;
+}
+
+.class-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-photo {
+  width: 64px;
+  height: 64px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: #d7eaff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initials {
+  font-size: 21px;
+  font-weight: bold;
+  color: var(--azul-medio);
+}
+
+.profile-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-kicker,
+.eyebrow {
+  font-size: 11px;
+  color: var(--azul);
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.profile-name {
+  font-size: 17px;
+}
+
+.profile-qualifications {
+  font-size: 13px;
+  color: var(--cinza);
+}
+
+.section-head {
+  margin-bottom: 25px;
+  max-width: 740px;
+}
+
+.section-title {
+  font-size: clamp(26px, 3vw, 35px);
+  letter-spacing: -1px;
+  margin: 13px 0;
+}
+
+.section-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+/* DESTAQUES: FACULDADE, DISCIPLINA E TURMA */
+
+.turma-highlight {
+  margin-bottom: 45px;
+}
+
+.turma-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.turma-card {
+  background: white;
+  border: 1px solid var(--borda);
+  padding: 25px;
+  border-radius: 19px;
+  box-shadow: 0 8px 25px rgba(15, 65, 120, .05);
+}
+
+.turma-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 13px;
+  color: var(--azul);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.turma-card-head .icon {
+  width: 19px;
+  height: 19px;
+}
+
+.turma-card-value {
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+/* BOTÕES DE VIDEOAULAS E PDFS */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 18px;
+}
+
+.resource-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 28px;
+  min-height: 130px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: .2s;
+}
+
+a.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(10, 60, 115, .16);
+}
+
+.resource-primary {
+  background: linear-gradient(130deg, #2588ff, #1357b5);
+  color: white;
+  box-shadow: 0 10px 25px rgba(20, 100, 200, .18);
+}
+
+.resource-secondary {
+  background: white;
+  border: 1px solid var(--borda);
+}
+
+.resource-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, .17);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.resource-secondary .resource-icon {
+  background: #e9f3ff;
+  color: var(--azul);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex: none;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.resource-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.resource-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.resource-title {
+  font-size: 19px;
+}
+
+.resource-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: .85;
+}
+
+.resource-trailing {
+  flex: none;
+}
+
+.resource-pending {
+  opacity: .7;
+  cursor: default;
+}
+
+.pending-tag {
+  background: rgba(255, 255, 255, .2);
+  border-radius: 20px;
+  padding: 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.resource-secondary .pending-tag {
+  background: #ebf2fa;
+}
+
+/* AVISOS */
+
+.support-note,
+.access-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0 55px;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.support-note {
+  background: #e8f3ff;
+  color: #416184;
+}
+
+.access-note {
+  background: var(--azul-escuro);
+  color: white;
+}
+
+/* ENCONTROS */
+
+.meetings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+}
+
+.meeting-card {
+  display: flex;
+  gap: 20px;
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 19px;
+  padding: 26px;
+}
+
+.meeting-number {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-radius: 14px;
+  background: #e9f3ff;
+  color: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.meeting-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--cinza);
+}
+
+.meeting-meta .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.meeting-title {
+  font-size: 19px;
+  margin: 12px 0;
+}
+
+.meeting-topics {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+.meeting-label {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #e9f3ff;
+  color: var(--azul-medio);
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.bottom-note {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--borda);
+  border-left: 4px solid var(--azul);
+  border-radius: 14px;
+}
+
+.bottom-note span {
+  color: var(--cinza);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* PÁGINA INICIAL */
+
+.home-welcome {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 35px;
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.home-welcome-icon {
+  padding: 18px;
+  background: #e9f3ff;
+  color: var(--azul);
+  border-radius: 16px;
+}
+
+.home-welcome-title {
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.home-welcome-copy p {
+  line-height: 1.8;
+  color: var(--cinza);
+}
+
+/* RODAPÉ */
+
+.footer {
+  padding: 25px 20px;
+  background: #eaf1f9;
+}
+
+.footer-line {
+  max-width: 1180px;
+  height: 1px;
+  background: #d5e2ef;
+  margin: 0 auto 20px;
+}
+
+.footer-content {
+  max-width: 1180px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--cinza);
+}
+
+.footer-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* MENSAGEM DE TURMA NÃO ENCONTRADA */
+
+.error-state {
+  max-width: 650px;
+  margin: 70px auto;
+  padding: 35px;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+}
+
+.return-link {
+  display: inline-block;
+  background: var(--azul);
+  color: white;
+  padding: 13px 20px;
+  margin-top: 15px;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+/* ADAPTAÇÃO PARA CELULARES */
+
+@media (max-width: 850px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-art {
+    display: none;
+  }
+
+  .turma-grid,
+  .resource-grid,
+  .meetings {
+    grid-template-columns: 1fr;
+  }
+
+  .class-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-content {
+    min-height: auto;
+    padding: 45px 0;
+  }
+
+  .resource-card,
+  .turma-card,
+  .meeting-card {
+    padding: 21px;
+  }
+
+  .home-welcome {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+
+/* DESTAQUE DO ÍCONE PDF */
+
+.resource-secondary .resource-icon {
+  background: #dcecff;
+  border: 1px solid #bad9ff;
+  border-radius: 15px;
+}
+
+.resource-secondary .resource-icon .icon {
+  color: #e53935;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  width: auto;
+  height: auto;
+}
+
+
+
+/* NOVA ILUSTRAÇÃO TECNOLÓGICA DO PORTAL */
+
+.hero-art {
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-image: url("imagens/banner-tecnologia.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Oculta o desenho antigo do livro */
+
+.hero-art .hero-circle {
+  display: none;
+}
