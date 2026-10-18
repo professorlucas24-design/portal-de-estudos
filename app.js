@@ -1322,3 +1322,95 @@ simbolo.innerHTML = `
   pasta.href = turma.pastaPDFs || "#";
 
 })();
+
+
+
+// ACESSO ÀS DISCIPLINAS NA PÁGINA INICIAL
+(() => {
+  const parametros = new URLSearchParams(window.location.search);
+  if (parametros.has("turma")) return;
+
+  const area = document.querySelector("#app .content-region");
+  const boasVindas = area?.querySelector(".home-welcome");
+  const turmas = window.PORTAL_DADOS?.turmas;
+  if (!area || !boasVindas || !turmas) return;
+
+  // Substitui o aviso antigo por uma lista de disciplinas.
+  area.querySelector(".access-note")?.remove();
+  const apresentacao = boasVindas.querySelector(".home-welcome-copy p");
+  if (apresentacao) {
+    apresentacao.textContent =
+      "Aqui você encontra as disciplinas, videoaulas e materiais de estudo " +
+      "disponibilizados pelo professor. Selecione sua disciplina para continuar.";
+  }
+
+  const secao = document.createElement("section");
+  secao.className = "minhas-disciplinas";
+  secao.innerHTML = `
+    <div class="section-head">
+      <span class="eyebrow">ÁREA DO ESTUDANTE</span>
+      <h2 class="section-title">Disciplinas disponíveis</h2>
+      <p class="section-description">Clique na disciplina para acessar os conteúdos.</p>
+    </div>
+    <div class="resource-grid" style="grid-template-columns: 1fr; margin-top: 20px;"></div>
+  `;
+
+  const lista = secao.querySelector(".resource-grid");
+  Object.entries(turmas).forEach(([codigo, turma]) => {
+    const acesso = document.createElement("a");
+    acesso.className = "resource-card resource-primary";
+    acesso.href = `?turma=${encodeURIComponent(codigo)}`;
+    acesso.style.textDecoration = "none";
+    acesso.innerHTML = `
+      <div class="resource-icon">📘</div>
+      <div class="resource-copy">
+        <strong class="resource-title"></strong>
+        <span class="resource-desc"></span>
+      </div>
+      <div class="resource-trailing">→</div>
+    `;
+    acesso.querySelector(".resource-title").textContent = turma.disciplina;
+    acesso.querySelector(".resource-desc").textContent =
+      `${turma.instituicao} • ${turma.curso} • ${turma.turma}`;
+    lista.appendChild(acesso);
+  });
+
+  secao.style.margin = "32px 0";
+  boasVindas.after(secao);
+})();
+
+
+// BOTÃO VOLTAR À PÁGINA INICIAL
+(() => {
+  const parametros = new URLSearchParams(window.location.search);
+
+  // Exibe o botão somente na página da disciplina.
+  if (!parametros.has("turma") || parametros.has("pagina")) return;
+
+  const area = document.querySelector("#app .content-region");
+  if (!area) return;
+
+  const voltar = document.createElement("a");
+  voltar.textContent = "← Voltar à página inicial";
+
+  const inicio = new URL(window.location.href);
+  inicio.search = "";
+  inicio.hash = "";
+  voltar.href = inicio.href;
+
+  Object.assign(voltar.style, {
+    display: "inline-flex",
+    alignItems: "center",
+    padding: "12px 18px",
+    marginBottom: "24px",
+    background: "#eaf3ff",
+    color: "#1555a2",
+    border: "1px solid #c7def8",
+    borderRadius: "10px",
+    fontWeight: "600",
+    fontSize: "14px",
+    textDecoration: "none"
+  });
+
+  area.prepend(voltar);
+})();
