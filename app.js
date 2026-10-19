@@ -721,13 +721,17 @@ simbolo.innerHTML = `
     })[caractere]);
   }
 
-  function obterIdDrive(link) {
-    const url = String(link || "");
-    const resultado = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)
-      || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  
+function obterIdYouTube(link) {
+  const url = String(link || "");
 
-    return resultado ? resultado[1] : null;
-  }
+  const resultado = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/
+  );
+
+  return resultado ? resultado[1] : null;
+}
+
 
   const estilo = document.createElement("style");
   estilo.textContent = `
@@ -1043,18 +1047,22 @@ simbolo.innerHTML = `
       titulo.textContent = video.titulo || "Videoaula";
       descricao.textContent = video.tema || "Material complementar";
 
-      const id = obterIdDrive(video.link);
+      const id = obterIdYouTube(video.link);
 
       tela.replaceChildren();
 
       if (id) {
         const iframe = document.createElement("iframe");
-        iframe.src = `https://drive.google.com/file/d/${id}/preview`;
+        iframe.src = `https://www.youtube.com/embed/${id}?playsinline=1&rel=0`;
         iframe.title = titulo.textContent;
         iframe.allow = "autoplay; fullscreen";
         iframe.setAttribute("allowfullscreen", "");
         tela.style.padding = "0";
         tela.appendChild(iframe);
+        
+alternativa.href = video.link;
+alternativa.textContent = "↗ Se o vídeo não abrir, assistir no YouTube";
+
       } else {
         const aviso = document.createElement("div");
         aviso.className = "biblioteca-placeholder";
