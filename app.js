@@ -985,8 +985,7 @@ function obterIdYouTube(link) {
         <div class="biblioteca-alternativo">
           <strong>Problemas para assistir?</strong>
           <p>
-            Caso o vídeo não carregue no navegador,
-            você pode acessar os arquivos pelo Google Drive.
+             Caso o vídeo não carregue no navegador, utilize o botão abaixo para assistir diretamente no YouTube.
           </p>
 
           <a class="biblioteca-link"
